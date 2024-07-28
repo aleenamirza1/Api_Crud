@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 app.use(express.json());
-const { GetUsers, CreateUser } = require("./Controllers/user.controllers");
+const { GetUsers, CreateUser,UpdateUser , DeleteUser } = require("./Controllers/user.controllers");
 const { GetProduct, CreateProduct,  UpdateProduct, DeleteProduct} = require('./Controllers/product.controllers');
 // const router = express.Router();
 // const userRoutes = require('./Routes/user.routes')
@@ -249,6 +249,8 @@ mongoose.connect('mongodb+srv://aleenamirza843:EENqDhYPLzpR98hG@cluster0.x7tdfso
 // app.use('/users', userRoutes);
 app.get('/users', GetUsers);
 app.post('/users', CreateUser);
+app.put('/users/:id', UpdateUser);
+app.delete('/users/:id', DeleteUser);
 
 
 app.get('/product', GetProduct);
