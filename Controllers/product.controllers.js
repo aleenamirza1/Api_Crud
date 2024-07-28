@@ -45,15 +45,6 @@ const UpdateProduct = async (req, res) => {
   
   const DeleteProduct = async (req, res) => {
     const { id } = req.params;
-    console.log(req.params);
-    const { Name, Quantity, Category, Rating } = req.body;
-
-    const product = {
-        Name: Name,
-        Quantity: Quantity,
-        Category: Category,
-        Rating: Rating,
-    };
     // const deletedProduct = await Product.findOneAndDelete(product);
     const deletedProduct = await Product.deleteOne({ _id: id });
     res.send(deletedProduct);
